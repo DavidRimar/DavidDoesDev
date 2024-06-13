@@ -1,0 +1,8 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.custom-navbar {
+  border-bottom: solid;
+  border-color: orange;
+}

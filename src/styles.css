@@ -1,1 +1,42 @@
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
+
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #345334;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: flex;
+  align-items: center;
+}
+
+.blog-posts-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  border: dotted;
+  border-width: 1px;
+}
+
+.blog-posts-container img {
+  max-width: 60%;
+  margin-bottom: 10px;
+}
+
+.blog-posts-container p {
+  margin-bottom: 20px;
+}
+
+.blog-posts-container a {
+  text-decoration: 20px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
