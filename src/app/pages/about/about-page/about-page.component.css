@@ -1,5 +1,10 @@
 .feature-image {
-  max-height: 280px;
+  max-height: 240px;
   max-width: auto;
   border-radius: 50%;
+  margin-top: 20px;
+}
+
+.custom-cont {
+  max-width: 760px;
 }

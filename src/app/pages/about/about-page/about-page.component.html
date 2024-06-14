@@ -1,16 +1,15 @@
 <div *ngIf="blogPost$ | async as blogPost">
 
-  <div class="container justify-content-center">
+  <div class="container justify-content-center custom-cont">
     <div class="d-flex align-items-center flex-column">
       <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="" class="feature-image">
       <h2>{{ blogPost.fields.title }}</h2>
       <p class="author">{{ blogPost.fields.author }}</p>
       <p class="summary">{{ blogPost.fields.summary }}</p>
-      <p class="content">{{ blogPost.fields.content }}</p>
+      <p class="content">{{ blogPost.fields.content.content.at(0).content.at(0).value }}</p>
     </div>
     <pre>
       {{ blogPost | json}}
     </pre>
-
   </div>
 </div>
