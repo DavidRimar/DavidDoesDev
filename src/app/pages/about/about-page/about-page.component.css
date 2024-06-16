@@ -1,10 +1,32 @@
 .feature-image {
+  --b: 8px; /* the border thickness*/
+  --w: 216px; /* image width */
+  --c: #A7DBD8;
+
+  --_w: calc(0.1364*var(--w));
+  width: var(--w);
+  aspect-ratio: 1;
+  border-radius: 50%; /* don't touch this, only rounded images */
+  padding: var(--b);
+  box-shadow: 0 0 0 var(--b) inset var(--c);
+  box-sizing: border-box;
+  margin-top: 40px;
+  margin-bottom: 20px;
   max-height: 240px;
-  max-width: auto;
-  border-radius: 50%;
-  margin-top: 20px;
 }
 
 .custom-cont {
   max-width: 760px;
+}
+
+.summary {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.top-left {
+  clip-path:
+    polygon(
+      120.71% 50%,calc(120.71% - 999px) calc(50% - 999px),
+      calc(50% - 999px) calc(120.71% - 999px),50% 120.71%);
 }

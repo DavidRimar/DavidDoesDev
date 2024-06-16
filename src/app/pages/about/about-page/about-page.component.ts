@@ -11,14 +11,13 @@ import { environment } from '../../../../../environments/environment';
 })
 export class AboutPageComponent {
 
-  list: string[] = [];
-  blogPost$ : Observable<any> | undefined
+  blogPost$ : Observable<any> | undefined;
+  blogPostContent$ : Observable<any> | undefined;
 
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulServiceService) {}
 
   ngOnInit(): void {
     this.blogPost$ = this.contentfulService.getById(environment.aboutMeId);
-
-
+    this.blogPostContent$ = this.contentfulService.getContentById(environment.aboutMeId);
   }
 }
