@@ -5,6 +5,7 @@
       <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="" class="feature-image top-left">
       <div *ngIf="blogPostContent$ | async as blogPostContent" [innerHTML]=blogPostContent>
       </div>
+
     </div>
   </div>
 </div>
