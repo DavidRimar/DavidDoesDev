@@ -1,4 +1,4 @@
-import { environment } from "../../environments/environment"
+import { environment } from "../environments/environment"
 
 export const APP_CONFIG = {
   spaceId: environment.spaceId,
