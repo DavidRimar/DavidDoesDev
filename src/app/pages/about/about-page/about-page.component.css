@@ -1,7 +1,7 @@
 .feature-image {
   --b: 8px; /* the border thickness*/
   --w: 216px; /* image width */
-  --c: #A7DBD8;
+  --c: #328cc1;
 
   --_w: calc(0.1364*var(--w));
   width: var(--w);
