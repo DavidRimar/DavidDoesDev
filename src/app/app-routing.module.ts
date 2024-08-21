@@ -7,7 +7,7 @@ import { AboutPageComponent } from './pages/about/about-page/about-page.componen
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: AboutPageComponent
   },
   {
     path: 'blog/:id',
