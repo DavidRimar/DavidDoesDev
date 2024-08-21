@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NoStandaloneApp": {
+    "DavidDoesDev": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/daviddoesdev",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -31,8 +31,9 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/logo_ddd.png",
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/purple-green.css",
@@ -68,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "NoStandaloneApp:build:production"
+              "buildTarget": "DavidDoesDev:build:production"
             },
             "development": {
-              "buildTarget": "NoStandaloneApp:build:development"
+              "buildTarget": "DavidDoesDev:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "NoStandaloneApp:build"
+            "buildTarget": "DavidDoesDev:build"
           }
         },
         "test": {
@@ -91,7 +92,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
+              "src/logo_ddd.png",
               "src/assets"
             ],
             "styles": [
