@@ -17,7 +17,7 @@ export class AboutPageComponent {
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulServiceService) {}
 
   ngOnInit(): void {
-    this.blogPost$ = this.contentfulService.getById(environment.aboutMeId);
-    this.blogPostContent$ = this.contentfulService.getContentById(environment.aboutMeId);
+    //this.blogPost$ = this.contentfulService.getById(environment.aboutMeId);
+    //this.blogPostContent$ = this.contentfulService.getContentById(environment.aboutMeId);
   }
 }
