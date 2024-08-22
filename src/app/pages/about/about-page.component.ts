@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContentfulServiceService } from '../../../services/contentful-service.service';
+import { ContentfulServiceService } from '../../services/contentful-service.service';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-about-page',

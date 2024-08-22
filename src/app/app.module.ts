@@ -8,7 +8,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { AboutPageComponent } from './pages/about/about-page/about-page.component';
+import { AboutPageComponent } from './pages/about/about-page.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 
