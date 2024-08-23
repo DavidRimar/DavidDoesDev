@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AboutPageComponent } from './pages/about/about-page.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { SocialMediaLinkComponent } from './components/social-media-links/social-media-link.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
     HomeComponent,
     NavbarComponent,
     AboutPageComponent,
-    BlogPostComponent
+    BlogPostComponent,
+    SocialMediaLinkComponent
   ],
   imports: [
     BrowserModule,
