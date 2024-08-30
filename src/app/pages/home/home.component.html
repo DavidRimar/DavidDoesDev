@@ -1,8 +1,16 @@
 <main>
-  <div class="container justify-content-center custom-cont">
-    <div class="d-flex align-items-center flex-column justify-content-center ">
-      <h1 class="m-5 text-main">Amazing content coming soon!</h1>
-      </div>
+
+  <div *ngIf="groupedBlogs$ | async as groupedBlogs">
+    <div *ngFor="let group of groupedBlogs" class="d-flex justify-content-around">
+      <ng-container *ngFor="let blog of group">
+        <app-blog-card
+          [title]="blog.title"
+          [summary]="blog.summary"
+          [author]="blog.author"
+          [date]="blog.date">
+        </app-blog-card>
+      </ng-container>
     </div>
+  </div>
 
 </main>

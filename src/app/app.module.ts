@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
 import { AboutPageComponent } from './pages/about/about-page.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
-import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { SocialMediaLinkComponent } from './components/social-media-links/social-media-link.component';
+import { BlogCardComponent } from './components/blog-card/blog-card.component';
+
 
 @NgModule({
   declarations: [
@@ -20,14 +23,16 @@ import { SocialMediaLinkComponent } from './components/social-media-links/social
     NavbarComponent,
     AboutPageComponent,
     BlogPostComponent,
-    SocialMediaLinkComponent
+    SocialMediaLinkComponent,
+    BlogCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MdbCollapseModule
+    MdbCollapseModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync('noop')
