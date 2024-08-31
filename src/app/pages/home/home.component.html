@@ -1,14 +1,22 @@
 <main>
 
   <div *ngIf="groupedBlogs$ | async as groupedBlogs">
-    <div *ngFor="let group of groupedBlogs" class="d-flex justify-content-around">
+    <div *ngFor="let group of groupedBlogs" class="row">
       <ng-container *ngFor="let blog of group">
-        <app-blog-card
-          [title]="blog.title"
-          [summary]="blog.summary"
-          [author]="blog.author"
-          [date]="blog.date">
-        </app-blog-card>
+        <div class="col-md d-flex justify-content-around mb-4">
+          <app-blog-card
+            [title]="blog.title"
+            [summary]="blog.summary"
+            [image]="blog.featuredImage"
+            [author]="blog.author"
+            [date]="blog.date">
+          </app-blog-card>
+        </div>
+      </ng-container>
+      <!-- Add empty columns to ensure consistent spacing -->
+      <ng-container *ngIf="group.length < 3">
+        <div *ngFor="let _ of [].constructor(3 - group.length)" class="col-md d-flex justify-content-around mb-4">
+        </div>
       </ng-container>
     </div>
   </div>

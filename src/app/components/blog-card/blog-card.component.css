@@ -1,8 +1,24 @@
 .blog-card {
-  max-width: 400px;
-  margin: 20px;
+  height: 200px; /* Set a fixed height to ensure all cards are the same size */
+  width: 380px;
+  display: flex;
+  flex-direction: column;
 }
-.mat-card-image {
-  height: 200px;
-  object-fit: cover;
+
+.blog-card img {
+  height: 150px; /* Fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the specified area without distortion */
+}
+
+.blog-card mat-card-content {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.blog-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }

@@ -17,17 +17,25 @@ export class HomeComponent implements OnInit {
   constructor(private contentfulService: ContentfulServiceService) {}
 
   ngOnInit(): void {
-    this.blogPosts$ = this.contentfulService.getAllEntries().pipe(
-      map((entries: any) => entries as any[]),  // First, cast the unknown type to any[]
-      map((entries: any[]) => entries.map(entry => ({
-        title: entry.title,
-        summary: entry.summary,
-        author: entry.author,
-        date: entry.date,
-      }) as BlogPost))  // Then map to BlogPost[]
-    );
 
-    console.log("blogPosts: ", this.blogPosts$);
+    this.blogPosts$ = this.contentfulService.getAllEntries().pipe(
+      map((entries: any) => {
+
+        console.log(entries);  // Inspect the structure of entries
+
+        if (entries.items) {
+          return entries.items.map((item: any) => ({
+            title: item.fields.title,
+            featuredImage: item.fields.featuredImage.fields.file.url,
+            summary: item.fields.summary,
+            author: item.fields.author,
+            date: item.fields.date,
+          }) as BlogPost);
+        } else {
+          throw new Error('Unexpected data structure');
+        }
+      })
+    );
 
     this.groupedBlogs$ = this.blogPosts$.pipe(
       map(blogs => this.chunkArray(blogs, 3))
