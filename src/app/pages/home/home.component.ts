@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
             featuredImage: item.fields.featuredImage.fields.file.url,
             summary: item.fields.summary,
             author: item.fields.author,
-            dateUpdated: item.fields.dateUpdated,
+            dateUpdated: this.formatDate(item.fields.dateUpdated),
           }) as BlogPost);
         } else {
           throw new Error('Unexpected data structure');
@@ -42,11 +42,21 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  chunkArray(arr: BlogPost[], chunkSize: number): BlogPost[][] {
+  private chunkArray(arr: BlogPost[], chunkSize: number): BlogPost[][] {
     const result: BlogPost[][] = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
       result.push(arr.slice(i, i + chunkSize));
     }
     return result;
+  }
+
+  private formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    };
+    return new Intl.DateTimeFormat('en-GB', options).format(date).toUpperCase();
   }
 }
