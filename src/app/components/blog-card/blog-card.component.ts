@@ -10,5 +10,5 @@ export class BlogCardComponent {
   @Input() image!: string;
   @Input() summary!: string;
   @Input() author!: string;
-  @Input() date!: string;
+  @Input() dateUpdated!: string;
 }

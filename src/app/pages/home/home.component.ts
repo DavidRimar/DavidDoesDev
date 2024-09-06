@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
             featuredImage: item.fields.featuredImage.fields.file.url,
             summary: item.fields.summary,
             author: item.fields.author,
-            date: item.fields.date,
+            dateUpdated: item.fields.dateUpdated,
           }) as BlogPost);
         } else {
           throw new Error('Unexpected data structure');

@@ -1,24 +1,71 @@
 .blog-card {
-  height: 200px; /* Set a fixed height to ensure all cards are the same size */
-  width: 380px;
+  background-color: white;
+  color: black;
+  margin-top: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
+  transition: box-shadow 0.3s ease;
+  border-radius: 8px;
+  height: 360px; /* Fixed height for all cards */
+  width: 340px;  /* Fixed width for all cards */
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Ensure space is evenly distributed */
+  overflow: hidden; /* Ensure no content spills over */
+}
+
+.blog-card:hover {
+  box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.3), 0px 8px 30px rgba(0, 0, 0, 0.22);
 }
 
 .blog-card img {
   height: 150px; /* Fixed height for the image */
-  object-fit: cover; /* Ensure the image covers the specified area without distortion */
+  object-fit: cover; /* Ensure the image covers the space without distortion */
+  width: 100%; /* Ensure the image fits the width of the card */
 }
 
-.blog-card mat-card-content {
-  flex-grow: 1;
-  overflow: hidden;
+mat-card-header {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+}
+
+mat-card-content {
+  flex-grow: 1; /* Allow the content to take the remaining space */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify; /* Optional: Center align text */
+  padding-top: 5px;
+  padding-bottom: 2px;
 }
 
 .blog-card p {
+  margin: 0;
+  flex-grow: 1; /* Allow the summary to grow to fill available space */
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-line-clamp: 3; /* Limit the summary to 3 lines */
   -webkit-box-orient: vertical;
+  overflow: visible;
+  text-overflow: ellipsis; /* Truncate summary if too long */
+  max-height: 115px; /* Prevents large summaries from pushing content */
+  font-size: 91%;
+}
+
+mat-card-subtitle {
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: gray;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  text-overflow: ellipsis; /* Ensure long subtitles are truncated */
+  justify-content: flex-start;
+}
+
+.blog-card mat-card-actions {
+  justify-content: flex-end; /* Align button at the bottom */
+  margin-top: auto; /* Push the button to the bottom of the card */
+  background-color: #f5f5f5; /* Add a light grey background color */
+  padding: 2px; /* Add some padding for spacing */
+  border-top: 1px solid #ddd; /* Optional: Add a top border to separate from content */
 }

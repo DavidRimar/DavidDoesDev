@@ -3,5 +3,5 @@ export interface BlogPost {
   summary: string;
   featuredImage: string;
   author: string;
-  date: string;
+  dateUpdated: string;
 }

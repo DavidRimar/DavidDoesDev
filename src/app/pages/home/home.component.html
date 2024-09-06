@@ -1,7 +1,7 @@
 <main>
 
-  <div *ngIf="groupedBlogs$ | async as groupedBlogs">
-    <div *ngFor="let group of groupedBlogs" class="row">
+  <div class="container mt-4" *ngIf="groupedBlogs$ | async as groupedBlogs">
+    <div class="row" *ngFor="let group of groupedBlogs">
       <ng-container *ngFor="let blog of group">
         <div class="col-md d-flex justify-content-around mb-4">
           <app-blog-card
@@ -9,7 +9,7 @@
             [summary]="blog.summary"
             [image]="blog.featuredImage"
             [author]="blog.author"
-            [date]="blog.date">
+            [dateUpdated]="blog.dateUpdated">
           </app-blog-card>
         </div>
       </ng-container>
