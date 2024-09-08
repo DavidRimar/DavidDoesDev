@@ -9,6 +9,7 @@ import { BlogPost } from '../../models/blog-post.model';  // Import the BlogPost
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   blogPosts$: Observable<BlogPost[]> | undefined;
