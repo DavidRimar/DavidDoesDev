@@ -4,7 +4,21 @@
     <div class="d-flex align-items-center flex-column justify-content-center ">
       <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="" class="feature-image top-left">
       <div class="d-flex flex-row mb-3">
-
+        <app-social-media-link
+          src="../../../../assets/github-mark.svg"
+          alt="github_profile_dr"
+          href="https://github.com/DavidRimar">
+        </app-social-media-link>
+        <app-social-media-link
+          src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+          alt="linkedin_profile_dr"
+          href="https://www.linkedin.com/in/david-r-32758790/">
+        </app-social-media-link>
+        <app-social-media-link
+          src="../../../../assets/youtube_logo_ddd.jfif"
+          alt="yt_logo_ddd"
+          href="https://www.youtube.com/channel/UCcqGf1BQt4E75ZesXRD_OZg">
+        </app-social-media-link>
       </div>
       <div *ngIf="blogPostContent$ | async as blogPostContent" [innerHTML]=blogPostContent>
       </div>
