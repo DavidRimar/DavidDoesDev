@@ -37,4 +37,16 @@ export class ContentfulServiceService {
 
     return from(promise);
   }
+
+    // Fetch entries by category
+    getByCategory(category: string) {
+      const promise = this.client.getEntries({
+        content_type: 'dddPosts',
+        'fields.category': category
+      }).then((response: any) => {
+        return response.items;
+      }).catch((error: any) => console.error(error));
+
+      return from(promise);
+    }
 }

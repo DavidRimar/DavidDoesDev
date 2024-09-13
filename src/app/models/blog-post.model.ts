@@ -4,4 +4,5 @@ export interface BlogPost {
   featuredImage: string;
   author: string;
   dateUpdated: string;
+  category: string;
 }

@@ -19,18 +19,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.blogPosts$ = this.contentfulService.getAllEntries().pipe(
+    this.blogPosts$ = this.contentfulService.getByCategory('SQL').pipe(
       map((entries: any) => {
 
-        console.log(entries);  // Inspect the structure of entries
-
-        if (entries.items) {
-          return entries.items.map((item: any) => ({
-            title: item.fields.title,
-            featuredImage: item.fields.featuredImage.fields.file.url,
-            summary: item.fields.summary,
-            author: item.fields.author,
+        if (entries) {
+          return entries.map((item: any) => ({
+            title: item.fields.title || 'No title',
+            summary: item.fields.summary || 'No summary',
+            featuredImage: item.fields.featuredImage?.fields?.file?.url || 'No image', // Handle missing featuredImage
+            author: item.fields.author || 'Unknown author', // Handle missing author
             dateUpdated: this.formatDate(item.fields.dateUpdated),
+            category: item.fields.category
           }) as BlogPost);
         } else {
           throw new Error('Unexpected data structure');
