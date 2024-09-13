@@ -1,6 +1,11 @@
 <main>
 
   <div class="container mt-4" *ngIf="groupedBlogs$ | async as groupedBlogs">
+
+    <div class="row justify-content-center mb-4 h1 home-header">
+      Latest blogs
+    </div>
+
     <div class="row" *ngFor="let group of groupedBlogs">
       <ng-container *ngFor="let blog of group">
         <div class="col-md d-flex justify-content-around mb-4">
