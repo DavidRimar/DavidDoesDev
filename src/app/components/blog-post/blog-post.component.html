@@ -6,7 +6,7 @@
   <!-- Display the content of the blog post -->
    <div class="row">
     <div class="col" *ngIf="blogPostContent$ | async as blogContent">
-      <p>{{ blogContent.content }}</p>
+      <div [innerHTML]="blogContent.content"></div>
     </div>
    </div>
 

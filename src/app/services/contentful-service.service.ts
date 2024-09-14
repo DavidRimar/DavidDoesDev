@@ -32,13 +32,13 @@ export class ContentfulServiceService {
 
     return from(promise);
   }
-
   getContentById(id: string) {
     const promise = this.client.getEntry(id)
-    .then((entry: any) => {
-      const rawRichTextField = entry.fields.content;
-      return documentToHtmlString(rawRichTextField);
-    }).catch((error: any) => console.log(error));
+      .then((entry: any) => {
+        const rawRichTextField = entry.fields.content;
+        return documentToHtmlString(rawRichTextField);
+      })
+      .catch((error: any) => console.log(error));
 
     return from(promise);
   }
