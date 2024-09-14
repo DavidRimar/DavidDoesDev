@@ -22,9 +22,14 @@ export class ContentfulServiceService {
     const promise = this.client.getEntries()
     return from(promise);
   }
-
   getById(id: string) {
     const promise = this.client.getEntry(id)
+      .then((entry: any) => {
+        console.log('Entry fetched from service:', entry); // Log in the service
+        return entry;
+      })
+      .catch(console.error);
+
     return from(promise);
   }
 
