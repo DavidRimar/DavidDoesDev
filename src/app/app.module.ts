@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

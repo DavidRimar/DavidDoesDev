@@ -12,9 +12,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [BlogPostComponent],
+  exports: [BlogPostComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes) // Child routes for the feature module
+    RouterModule.forChild(routes)
   ]
 })
-export class BlogModule { }
+export class BlogPostModule { }

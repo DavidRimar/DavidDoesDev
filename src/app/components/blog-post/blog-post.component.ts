@@ -5,27 +5,31 @@ import { map, tap } from 'rxjs/operators';
 import { ContentfulServiceService } from '../../services/contentful-service.service';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostContent } from '../../models/blog-post-content.model';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.css']
 })
+
 export class BlogPostComponent implements OnInit {
+
+  @Input() id!: string;
 
   blogPost$: Observable<BlogPost> | undefined;
   blogPostContent$: Observable<BlogPostContent> | undefined;
 
   constructor(
-    private route: ActivatedRoute,
+    //private route: ActivatedRoute,
     private contentfulService: ContentfulServiceService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
+    //this.route.params.subscribe(params => {
+      //const id = params['id'];
 
-      this.blogPost$ = this.contentfulService.getById(id).pipe(
+      this.blogPost$ = this.contentfulService.getById(this.id).pipe(
         tap(entry => console.log('Raw API response:', entry)), // Log the raw response
 
         map((entry: any) => {
@@ -36,7 +40,7 @@ export class BlogPostComponent implements OnInit {
       );
 
 
-      this.blogPostContent$ = this.contentfulService.getContentById(id).pipe(
+      this.blogPostContent$ = this.contentfulService.getContentById(this.id).pipe(
         tap(entry => console.log('Raw API CONTENT:', entry)), // Log the raw response
 
         map((entry: any) => {
@@ -50,7 +54,7 @@ export class BlogPostComponent implements OnInit {
       this.blogPostContent$.subscribe(blog => {
         console.log('Blog post emitted:', blog);
       });
-    });
+    //});
   }
 
   private mapToBlogPost(response: any): BlogPost {
