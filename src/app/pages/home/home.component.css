@@ -1,3 +1,24 @@
-.text-main {
+.blog-posts-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  border: dotted;
+  border-width: 1px;
+}
+
+.blog-posts-container img {
+  max-width: 60%;
+  margin-bottom: 10px;
+}
+
+.blog-posts-container p {
+  margin-bottom: 20px;
+}
+
+.blog-posts-container a {
+  text-decoration: 20px;
+}
+
+.home-header {
   color: #0b3c5d;
 }

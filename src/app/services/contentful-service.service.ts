@@ -22,19 +22,36 @@ export class ContentfulServiceService {
     const promise = this.client.getEntries()
     return from(promise);
   }
-
   getById(id: string) {
     const promise = this.client.getEntry(id)
+      .then((entry: any) => {
+        console.log('Entry fetched from service:', entry); // Log in the service
+        return entry;
+      })
+      .catch(console.error);
+
     return from(promise);
   }
-
   getContentById(id: string) {
     const promise = this.client.getEntry(id)
-    .then((entry: any) => {
-      const rawRichTextField = entry.fields.content;
-      return documentToHtmlString(rawRichTextField);
-    }).catch((error: any) => console.log(error));
+      .then((entry: any) => {
+        const rawRichTextField = entry.fields.content;
+        return documentToHtmlString(rawRichTextField);
+      })
+      .catch((error: any) => console.log(error));
 
     return from(promise);
   }
+
+    // Fetch entries by category
+    getByCategory(category: string) {
+      const promise = this.client.getEntries({
+        content_type: 'dddPosts',
+        'fields.category': category
+      }).then((response: any) => {
+        return response.items;
+      }).catch((error: any) => console.error(error));
+
+      return from(promise);
+    }
 }
