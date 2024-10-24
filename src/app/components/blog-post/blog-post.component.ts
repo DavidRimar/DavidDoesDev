@@ -29,6 +29,8 @@ export class BlogPostComponent implements OnInit {
     //this.route.params.subscribe(params => {
       //const id = params['id'];
 
+      console.log("id received:", this.id);
+
       this.blogPost$ = this.contentfulService.getById(this.id).pipe(
         tap(entry => console.log('Raw API response:', entry)), // Log the raw response
 
