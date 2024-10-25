@@ -52,13 +52,23 @@ b {
 }
 
 
-p code {
-  display: block;            /* Make <code> a block-level element */
-  background-color: #353232;   /* Dark grey background */
-  color: #df9816;           /* Orange text */
-  padding: 4px 8px;         /* Padding for readability */
-  border-radius: 4px;       /* Rounded corners */
-  font-family: monospace;   /* Monospaced font for code */
-  margin-top: 8px;          /* Spacing above the <code> element */
-  margin-bottom: 8px;       /* Spacing below the <code> element */
+code {
+  display: block;                      /* Make <code> a block-level element */
+  background-color: #1e1e1e;          /* Dark background, similar to VS Code */
+  color: #f8903b;                      /* Light gray text color */
+  padding: 8px;                        /* Padding for better readability */
+  border-radius: 4px;                  /* Rounded corners */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+  margin-top: 8px;                     /* Space above the <code> element */
+  margin-bottom: 8px;                  /* Space below the <code> element */
+  overflow-x: auto;                    /* Enable horizontal scrolling for long lines */
+  white-space: pre;                    /* Preserve whitespace for formatting */
+}
+
+/* Optional: Style for inline <code> elements */
+code.inline {
+  display: inline;                     /* Keep inline for inline code */
+  background-color: #2a2a2a;          /* Slightly lighter background for inline */
+  padding: 2px 4px;                   /* Smaller padding for inline code */
+  border-radius: 3px;                 /* Rounded corners for inline */
 }
