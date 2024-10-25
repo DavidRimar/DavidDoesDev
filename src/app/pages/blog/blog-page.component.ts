@@ -18,10 +18,7 @@ export class BlogPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-
       this.id = params['id'];
-
-      console.log("id set:", this.id);
     });
   }
 }

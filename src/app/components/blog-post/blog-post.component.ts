@@ -5,12 +5,13 @@ import { map, tap } from 'rxjs/operators';
 import { ContentfulServiceService } from '../../services/contentful-service.service';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostContent } from '../../models/blog-post-content.model';
-import { Input } from '@angular/core';
+import { Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.css']
+  styleUrls: ['./blog-post.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class BlogPostComponent implements OnInit {
@@ -21,18 +22,13 @@ export class BlogPostComponent implements OnInit {
   blogPostContent$: Observable<BlogPostContent> | undefined;
 
   constructor(
-    //private route: ActivatedRoute,
     private contentfulService: ContentfulServiceService
   ) {}
 
   ngOnInit(): void {
-    //this.route.params.subscribe(params => {
-      //const id = params['id'];
-
-      console.log("id received:", this.id);
 
       this.blogPost$ = this.contentfulService.getById(this.id).pipe(
-        tap(entry => console.log('Raw API response:', entry)), // Log the raw response
+        tap(entry => console.log('Raw API response:', entry)),
 
         map((entry: any) => {
           return {
