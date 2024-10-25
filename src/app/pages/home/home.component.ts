@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
             dateUpdated: this.formatDate(item.fields.dateUpdated),
             category: item.fields.category
           }) as BlogCard);
+
         } else {
           throw new Error('Unexpected data structure');
         }

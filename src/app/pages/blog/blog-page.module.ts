@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { BlogPostModule } from '../../components/blog-post/blog-post.module';
 import { BlogPageComponent } from './blog-page.component';
+import { BlogPostModule } from '../../components/blog-post/blog-post.module';
 
 const routes: Routes = [
   {
-    path: 'blog/:id',
+    path: '',
     component: BlogPageComponent
   }
 ];
