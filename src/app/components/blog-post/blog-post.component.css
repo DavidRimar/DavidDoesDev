@@ -1,0 +1,91 @@
+#blog-post-container, #blog-content-block {
+  display: flex;           /* Use flexbox to center the content */
+  justify-content: center; /* Center the content horizontally */
+}
+
+#blog-content-block {
+  padding-bottom: 130px;
+}
+
+#blog-post-container p, #blog-content-block p {
+  width: 800px;           /* Default width for larger screens */
+  max-width: 100%;        /* Ensure it does not exceed the container's width */
+  margin: 0 15px;         /* Add horizontal margins for padding */
+  padding: 0 15px;        /* Padding to ensure text doesn't touch the edges */
+  box-sizing: border-box;  /* Include padding in the element's total width */
+}
+
+/* Medium screens */
+@media (max-width: 800px) {
+  #blog-post-container p, #blog-content-block p {
+    width: 600px;         /* Set width for medium screens */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  #blog-post-container p, #blog-content-block p {
+    width: 400px;         /* Set width for mobile screens */
+    margin: 0 auto;      /* Center the paragraph */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 350px) {
+  #blog-post-container p, #blog-content-block p {
+    width: 250px;         /* Set width for mobile screens */
+    margin: 0 auto;      /* Center the paragraph */
+  }
+}
+
+h2 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+h3, h4 {
+  display: block;
+  margin-top: 25px;
+  font-size: larger;
+  padding: 0 15px;
+}
+
+p {
+  text-align: justify;
+  margin: 0.4em 0 !important; /* Adds a 1em margin above and below the <p> element */
+}
+
+code {
+  display: block;                      /* Make <code> a block-level element */
+  background-color: #1e1e1e;          /* Dark background, similar to VS Code */
+  color: #f8903b;                      /* Light gray text color */
+  padding: 8px;                        /* Padding for better readability */
+  border-radius: 4px;                  /* Rounded corners */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+  margin-top: 8px;                     /* Space above the <code> element */
+  margin-bottom: 8px;                  /* Space below the <code> element */
+  overflow-x: auto;                    /* Enable horizontal scrolling for long lines */
+  white-space: pre;                    /* Preserve whitespace for formatting */
+}
+
+/* Optional: Style for inline <code> elements */
+code.inline {
+  display: inline;                     /* Keep inline for inline code */
+  background-color: #2a2a2a;          /* Slightly lighter background for inline */
+  padding: 2px 4px;                   /* Smaller padding for inline code */
+  border-radius: 3px;                 /* Rounded corners for inline */
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh auto 1vh;
+}
+
+.image-container img {
+  width: 650px;
+  height: auto;
+}

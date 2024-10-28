@@ -30,3 +30,7 @@
       120.71% 50%,calc(120.71% - 999px) calc(50% - 999px),
       calc(50% - 999px) calc(120.71% - 999px),50% 120.71%);
 }
+
+.container {
+  padding-bottom: 130px;
+}

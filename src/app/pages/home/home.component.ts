@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContentfulServiceService } from '../../services/contentful-service.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BlogPost } from '../../models/blog-post.model';  // Import the BlogPost interface
+import { BlogCard } from '../../models/blog-card.model';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +12,8 @@ import { BlogPost } from '../../models/blog-post.model';  // Import the BlogPost
 
 export class HomeComponent implements OnInit {
 
-  blogPosts$: Observable<BlogPost[]> | undefined;
-  groupedBlogs$: Observable<BlogPost[][]> | undefined;
+  blogPosts$: Observable<BlogCard[]> | undefined;
+  groupedBlogs$: Observable<BlogCard[][]> | undefined;
 
   constructor(private contentfulService: ContentfulServiceService) {}
 
@@ -23,14 +23,19 @@ export class HomeComponent implements OnInit {
       map((entries: any) => {
 
         if (entries) {
+
+          console.log('entries', entries);
+
           return entries.map((item: any) => ({
+            id: item.sys.id,
             title: item.fields.title || 'No title',
             summary: item.fields.summary || 'No summary',
             featuredImage: item.fields.featuredImage?.fields?.file?.url || 'No image', // Handle missing featuredImage
             author: item.fields.author || 'Unknown author', // Handle missing author
             dateUpdated: this.formatDate(item.fields.dateUpdated),
             category: item.fields.category
-          }) as BlogPost);
+          }) as BlogCard);
+
         } else {
           throw new Error('Unexpected data structure');
         }
@@ -42,8 +47,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  private chunkArray(arr: BlogPost[], chunkSize: number): BlogPost[][] {
-    const result: BlogPost[][] = [];
+  private chunkArray(arr: BlogCard[], chunkSize: number): BlogCard[][] {
+    const result: BlogCard[][] = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
       result.push(arr.slice(i, i + chunkSize));
     }

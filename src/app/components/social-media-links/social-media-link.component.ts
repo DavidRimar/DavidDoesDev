@@ -9,4 +9,6 @@ export class SocialMediaLinkComponent {
   @Input() src!: string;
   @Input() alt!: string;
   @Input() href!: string;
+  @Input() width: string = '36px';
+  @Input() height: string = '36px';
 }

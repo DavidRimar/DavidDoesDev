@@ -8,6 +8,8 @@
   </mat-card-content>
   <mat-card-actions>
     <p class="card-update-date">{{ dateUpdated }}</p>
-    <button class="read-button" mat-button>Read</button>
+    <a [routerLink]="['blog', id ]" class="read-button mat-button mat-button-base">
+      Read
+    </a>
   </mat-card-actions>
 </mat-card>

@@ -5,17 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { BlogPostComponent } from './components/blog-post/blog-post.component';
+import { FooterModule } from './components/footer/footer.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    BlogPostComponent // to move this out to blog-page.component
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FooterModule
   ],
   providers: [
     provideAnimationsAsync('noop')
