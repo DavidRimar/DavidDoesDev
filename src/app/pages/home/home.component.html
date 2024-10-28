@@ -1,8 +1,29 @@
 <main>
-  <div class="container justify-content-center custom-cont">
-    <div class="d-flex align-items-center flex-column justify-content-center ">
-      <h1 class="m-5 text-main">Amazing content coming soon!</h1>
-      </div>
+
+  <div class="container mt-4" *ngIf="groupedBlogs$ | async as groupedBlogs">
+
+    <div class="row justify-content-center mb-4 h1 home-header">
+      Latest blogs
     </div>
+
+    <div class="row" *ngFor="let group of groupedBlogs">
+      <ng-container *ngFor="let blog of group">
+        <div class="col-md d-flex justify-content-around mb-4">
+          <app-blog-card
+            [title]="blog.title"
+            [summary]="blog.summary"
+            [image]="blog.featuredImage"
+            [author]="blog.author"
+            [dateUpdated]="blog.dateUpdated">
+          </app-blog-card>
+        </div>
+      </ng-container>
+      <!-- Add empty columns to ensure consistent spacing -->
+      <ng-container *ngIf="group.length < 3">
+        <div *ngFor="let _ of [].constructor(3 - group.length)" class="col-md d-flex justify-content-around mb-4">
+        </div>
+      </ng-container>
+    </div>
+  </div>
 
 </main>

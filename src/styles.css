@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #345334;
+  color: black;
 }
 
 header {
@@ -19,27 +19,6 @@ header {
   display: flex;
   justify-content: flex;
   align-items: center;
-}
-
-.blog-posts-container {
-  max-width: 600px;
-  margin: 0 auto;
-  margin-bottom: 100px;
-  border: dotted;
-  border-width: 1px;
-}
-
-.blog-posts-container img {
-  max-width: 60%;
-  margin-bottom: 10px;
-}
-
-.blog-posts-container p {
-  margin-bottom: 20px;
-}
-
-.blog-posts-container a {
-  text-decoration: 20px;
 }
 
 .nav-font {
@@ -51,3 +30,7 @@ header {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-main {
+  color: #0b3c5d;
+}

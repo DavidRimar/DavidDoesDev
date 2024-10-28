@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { BlogPostComponent } from './components/blog-post/blog-post.component';
-import { AboutPageComponent } from './pages/about/about-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
-  {
-    path: 'blog/:id',
-    component: BlogPostComponent
-  },
+ // {
+ //   path: 'blog',
+ //   loadChildren: () => import('./components/blog-post/blog-post.component').then(m => m.BlogPostComponent)
+ // },
   {
     path: 'about',
-    component: AboutPageComponent
+    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
+  },
+  {
+    path: '**',
+    redirectTo: '' // Redirect to home for unknown routes
   }
 ];
 

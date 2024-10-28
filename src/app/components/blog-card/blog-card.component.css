@@ -1,0 +1,95 @@
+.blog-card {
+  background-color: white;
+  color: black;
+  margin-top: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
+  transition: box-shadow 0.3s ease;
+  border-radius: 8px;
+  height: 360px; /* Fixed height for all cards */
+  width: 340px;  /* Fixed width for all cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure space is evenly distributed */
+  overflow: hidden; /* Ensure no content spills over */
+}
+
+.blog-card:hover {
+  box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.3), 0px 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+.blog-card img {
+  height: 150px; /* Fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the space without distortion */
+  width: 100%; /* Ensure the image fits the width of the card */
+}
+
+mat-card-header {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+}
+
+mat-card-content {
+  flex-grow: 1; /* Allow the content to take the remaining space */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify; /* Optional: Center align text */
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+.blog-card p {
+  margin: 0;
+  flex-grow: 1; /* Allow the summary to grow to fill available space */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit the summary to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: visible;
+  text-overflow: ellipsis; /* Truncate summary if too long */
+  max-height: 115px; /* Prevents large summaries from pushing content */
+  font-size: 91%;
+}
+
+mat-card-subtitle {
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ensure long subtitles are truncated */
+  justify-content: flex-start;
+}
+
+.blog-card mat-card-actions {
+  justify-content: flex-end; /* Align button at the bottom */
+  margin-top: auto; /* Push the button to the bottom of the card */
+  background-color: #f5f5f5; /* Add a light grey background color */
+  padding: 2px; /* Add some padding for spacing */
+  border-top: 1px solid #ddd; /* Optional: Add a top border to separate from content */
+}
+
+.card-update-date {
+  font-size: 0.9em; /* Adjust the font size to your preference */
+  color: rgb(114, 114, 114); /* Optional: Set color for the date */
+  margin-right: auto; /* Ensure it aligns correctly */
+  padding-left: 2.5%
+}
+
+.read-button {
+  background-color: #d9b310; /* Set the background color to red */
+  color: black !important; /* Ensure the text is readable with white color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Optional: Rounded corners */
+  padding: 2px 2px; /* Optional: Adjust padding for button size */
+  font-size: 0.9em; /* Optional: Font size for the button text */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin-right: 0.7rem;
+}
+
+.read-button:hover {
+  background-color: #f1cb22; /* Darker shade on hover */
+  color: black !important; /* Ensure text color remains white on hover */
+  border: 2px solid;
+}
