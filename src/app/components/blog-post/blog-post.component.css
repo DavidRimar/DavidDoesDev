@@ -42,20 +42,20 @@ h2 {
   margin-top: 25px;
   margin-bottom: 15px;
   text-align: center;
+  padding: 0 10px;
+}
+
+h3, h4 {
+  display: block;
+  margin-top: 25px;
+  font-size: larger;
+  padding: 0 15px;
 }
 
 p {
   text-align: justify;
-  margin: 1em 0 !important; /* Adds a 1em margin above and below the <p> element */
+  margin: 0.8em 0 !important; /* Adds a 1em margin above and below the <p> element */
 }
-
-b {
-  display: block;            /* Make <b> a block-level element */
-  margin-top: 12px;          /* Space above the <b> element */
-  margin-bottom: 12px;       /* Space below the <b> element */
-  font-size: larger;
-}
-
 
 code {
   display: block;                      /* Make <code> a block-level element */
