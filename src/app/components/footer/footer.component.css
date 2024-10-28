@@ -1,0 +1,39 @@
+/* Styles for the footer */
+.footer {
+  background-color:#0b3c5d; /* Background color */
+  color: white;           /* Text color */
+  text-align: center;     /* Center-aligns text */
+  padding: 10px 0;       /* Padding for top and bottom */
+  position: fixed;        /* Fixes the footer to the bottom of the viewport */
+  left: 0;                /* Aligns to the left of the viewport */
+  bottom: 0;              /* Aligns to the bottom of the viewport */
+  width: 100%;            /* Makes the footer span the full width */
+  z-index: 1000;         /* Ensures the footer is above other content */
+}
+
+.footer-content {
+  max-width: 1200px;     /* Optional: limits the width of the content */
+  margin: 0 auto;        /* Centers the content */
+  color: white;           /* Text color */
+}
+
+.footer-content p {
+  color: white;           /* Text color */
+  padding-top: 4px;
+  margin-bottom: 0 !important;
+  justify-content: center !important;
+  text-align: center;
+  font-size: small;
+}
+
+.footer nav ul {
+  list-style: none;      /* Removes default list styling */
+  padding: 0;           /* Removes default padding */
+  margin: 0;            /* Removes default margin */
+  display: flex;        /* Use flexbox to align items horizontally */
+  justify-content: center; /* Centers the list items */
+}
+
+.footer nav ul li {
+  margin: 0 15px;       /* Adds spacing between list items */
+}

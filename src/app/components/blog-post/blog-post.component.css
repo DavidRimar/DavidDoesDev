@@ -3,6 +3,10 @@
   justify-content: center; /* Center the content horizontally */
 }
 
+#blog-content-block {
+  padding-bottom: 130px;
+}
+
 #blog-post-container p, #blog-content-block p {
   width: 800px;           /* Default width for larger screens */
   max-width: 100%;        /* Ensure it does not exceed the container's width */
@@ -42,6 +46,7 @@ h2 {
 
 p {
   text-align: justify;
+  margin: 1em 0 !important; /* Adds a 1em margin above and below the <p> element */
 }
 
 b {
@@ -83,8 +88,4 @@ code.inline {
 .image-container img {
   width: 650px;
   height: auto;
-}
-
-p {
-  margin: 1em 0 !important; /* Adds a 1em margin above and below the <p> element */
 }
