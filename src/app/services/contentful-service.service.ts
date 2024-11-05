@@ -46,11 +46,11 @@ export class ContentfulServiceService {
     return from(promise);
   }
 
-   getByTitle(title: string) {
+   getByUrlHandle(urlHandle: string) {
     const promise = this.client
       .getEntries({
         content_type: 'dddPosts',
-        'fields.title': title,
+        'fields.urlHandle': urlHandle,
         limit: 1,
       })
       .then((response: any) => {
@@ -67,11 +67,11 @@ export class ContentfulServiceService {
     return from(promise);
   }
 
-  getContentByTitle(title: string) {
+  getContentByUrlHandle(urlHandle: string) {
     const promise = this.client
       .getEntries({
         content_type: 'dddPosts',
-        'fields.title': title,
+        'fields.urlHandle': urlHandle,
         limit: 1,
       })
       .then((response: any) => {

@@ -5,7 +5,7 @@ import { BlogPostComponent } from './blog-post.component';
 
 const routes: Routes = [
   {
-    path: ':title',
+    path: ':urlHandle',
     component: BlogPostComponent
   }
 ];

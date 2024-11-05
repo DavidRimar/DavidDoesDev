@@ -12,4 +12,5 @@ export class BlogCardComponent {
   @Input() author!: string;
   @Input() dateUpdated!: string;
   @Input() id!: string;
+  @Input() urlHandle!: string;
 }

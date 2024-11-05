@@ -16,7 +16,7 @@ import { Input, ViewEncapsulation } from '@angular/core';
 
 export class BlogPostComponent implements OnInit {
 
-  @Input() title!: string;
+  @Input() urlHandle!: string;
 
   //title: string = "";
   blogPost$: Observable<BlogPost> | undefined;
@@ -29,7 +29,7 @@ export class BlogPostComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.blogPost$ = this.contentfulService.getByTitle(this.title).pipe(
+      this.blogPost$ = this.contentfulService.getByUrlHandle(this.urlHandle).pipe(
 
         map((entry: any) => {
           //this.title = entry.fields.title || '404'
@@ -40,7 +40,7 @@ export class BlogPostComponent implements OnInit {
       );
 
 
-      this.blogPostContent$ = this.contentfulService.getContentByTitle(this.title).pipe(
+      this.blogPostContent$ = this.contentfulService.getContentByUrlHandle(this.urlHandle).pipe(
 
         map((entry: any) => {
           return {
