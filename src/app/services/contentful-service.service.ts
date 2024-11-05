@@ -46,6 +46,48 @@ export class ContentfulServiceService {
     return from(promise);
   }
 
+   getByTitle(title: string) {
+    const promise = this.client
+      .getEntries({
+        content_type: 'dddPosts',
+        'fields.title': title,
+        limit: 1,
+      })
+      .then((response: any) => {
+        if (response.items.length > 0) {
+          console.log('Entry fetched by title from service:', response.items[0]);
+          return response.items[0];
+        } else {
+          console.log('No entry found with the given title');
+          return null;
+        }
+      })
+      .catch(console.error);
+
+    return from(promise);
+  }
+
+  getContentByTitle(title: string) {
+    const promise = this.client
+      .getEntries({
+        content_type: 'dddPosts',
+        'fields.title': title,
+        limit: 1,
+      })
+      .then((response: any) => {
+        if (response.items.length > 0) {
+          const rawRichTextField = response.items[0].fields.content;
+          return documentToHtmlString(rawRichTextField, contentfulRichTextOptions);
+        } else {
+          console.log('No content found with the given title');
+          return null;
+        }
+      })
+      .catch((error: any) => console.log(error));
+
+    return from(promise);
+  }
+
   // Fetch entries by category
   getByCategory(category: string) {
     const promise = this.client.getEntries({
