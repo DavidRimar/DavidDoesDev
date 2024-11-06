@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
             featuredImage: item.fields.featuredImage?.fields?.file?.url || 'No image', // Handle missing featuredImage
             author: item.fields.author || 'Unknown author', // Handle missing author
             dateUpdated: this.formatDate(item.fields.dateUpdated),
-            category: item.fields.category
+            category: item.fields.category,
+            urlHandle: item.fields.urlHandle
           }) as BlogCard);
 
         } else {

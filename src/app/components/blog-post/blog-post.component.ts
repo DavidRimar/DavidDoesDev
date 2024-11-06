@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, catchError, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ContentfulServiceService } from '../../services/contentful-service.service';
@@ -16,21 +16,23 @@ import { Input, ViewEncapsulation } from '@angular/core';
 
 export class BlogPostComponent implements OnInit {
 
-  @Input() id!: string;
+  @Input() urlHandle!: string;
 
+  //title: string = "";
   blogPost$: Observable<BlogPost> | undefined;
   blogPostContent$: Observable<BlogPostContent> | undefined;
 
   constructor(
-    private contentfulService: ContentfulServiceService
+    private contentfulService: ContentfulServiceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
 
-      this.blogPost$ = this.contentfulService.getById(this.id).pipe(
-        tap(entry => console.log('Raw API response:', entry)),
+      this.blogPost$ = this.contentfulService.getByUrlHandle(this.urlHandle).pipe(
 
         map((entry: any) => {
+          //this.title = entry.fields.title || '404'
           return {
             title: entry.fields.title || 'No title',
           } as BlogPost;
@@ -38,8 +40,7 @@ export class BlogPostComponent implements OnInit {
       );
 
 
-      this.blogPostContent$ = this.contentfulService.getContentById(this.id).pipe(
-        tap(entry => console.log('Raw API CONTENT:', entry)), // Log the raw response
+      this.blogPostContent$ = this.contentfulService.getContentByUrlHandle(this.urlHandle).pipe(
 
         map((entry: any) => {
           return {
@@ -48,11 +49,10 @@ export class BlogPostComponent implements OnInit {
         }),
       );
 
-      // Debug: Log emitted values
-      this.blogPostContent$.subscribe(blog => {
-        console.log('Blog post emitted:', blog);
-      });
-    //});
+       // Update the URL to use the title instead of the elephantId on the server side
+       //if (isPlatformServer(this.platformId)) {
+        // this.router.navigateByUrl(`/blog/${this.title}`, { replaceUrl: true });
+      //}
   }
 
   private mapToBlogPost(response: any): BlogPost {

@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'blog/:id',
+    path: ':urlHandle',
     loadChildren: () => import('./pages/blog/blog-page.module').then(m => m.BlogPageModule)
   },
   {

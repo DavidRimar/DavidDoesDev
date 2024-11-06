@@ -12,13 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 
 export class BlogPageComponent implements OnInit {
 
-  id!: string;
+  urlHandle!: string;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.id = params['id'];
+      this.urlHandle = params['urlHandle'];
     });
   }
 }

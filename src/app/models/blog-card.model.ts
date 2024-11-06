@@ -6,4 +6,5 @@ export interface BlogCard {
   author: string;
   dateUpdated: string;
   category: string;
+  urlHandle: string;
 }
