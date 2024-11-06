@@ -27,7 +27,6 @@ export class ContentfulServiceService {
   getById(id: string) {
     const promise = this.client.getEntry(id)
       .then((entry: any) => {
-        console.log('Entry fetched from service:', entry); // Log in the service
         return entry;
       })
       .catch(console.error);
@@ -49,16 +48,16 @@ export class ContentfulServiceService {
    getByUrlHandle(urlHandle: string) {
     const promise = this.client
       .getEntries({
-        content_type: 'dddPosts',
+        content_type: APP_CONFIG.contentType,
         'fields.urlHandle': urlHandle,
         limit: 1,
       })
       .then((response: any) => {
         if (response.items.length > 0) {
-          console.log('Entry fetched by title from service:', response.items[0]);
+          console.log('Entry fetched by url title from service:', response.items[0]);
           return response.items[0];
         } else {
-          console.log('No entry found with the given title');
+          console.log('No entry found with the given url title');
           return null;
         }
       })
@@ -70,7 +69,7 @@ export class ContentfulServiceService {
   getContentByUrlHandle(urlHandle: string) {
     const promise = this.client
       .getEntries({
-        content_type: 'dddPosts',
+        content_type: APP_CONFIG.contentType,
         'fields.urlHandle': urlHandle,
         limit: 1,
       })
@@ -79,7 +78,7 @@ export class ContentfulServiceService {
           const rawRichTextField = response.items[0].fields.content;
           return documentToHtmlString(rawRichTextField, contentfulRichTextOptions);
         } else {
-          console.log('No content found with the given title');
+          console.log('No content found with the given url handle');
           return null;
         }
       })
@@ -88,10 +87,9 @@ export class ContentfulServiceService {
     return from(promise);
   }
 
-  // Fetch entries by category
   getByCategory(category: string) {
     const promise = this.client.getEntries({
-      content_type: 'dddPosts',
+      content_type: APP_CONFIG.contentType,
       'fields.category': category
     }).then((response: any) => {
       return response.items;
