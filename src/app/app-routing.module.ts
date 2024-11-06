@@ -7,12 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: ':urlHandle',
-    loadChildren: () => import('./pages/blog/blog-page.module').then(m => m.BlogPageModule)
-  },
-  {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
+  },
+  {
+    path: ':urlHandle',
+    loadChildren: () => import('./pages/blog/blog-page.module').then(m => m.BlogPageModule)
   },
   {
     path: '**',

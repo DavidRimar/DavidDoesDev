@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ContentfulServiceService } from '../../services/contentful-service.service';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -14,7 +13,7 @@ export class AboutPageComponent {
   blogPost$ : Observable<any> | undefined;
   blogPostContent$ : Observable<any> | undefined;
 
-  constructor(private route: ActivatedRoute, private contentfulService: ContentfulServiceService) {}
+  constructor(private contentfulService: ContentfulServiceService) {}
 
   ngOnInit(): void {
     this.blogPost$ = this.contentfulService.getById(environment.aboutMeId);
