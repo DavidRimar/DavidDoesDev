@@ -34,3 +34,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-main {
   color: #0b3c5d;
 }
+
+p {
+  text-align: justify;
+  margin: 1.2em 0;
+}
