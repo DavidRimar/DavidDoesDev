@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Observable } from 'rxjs';
 //import { BlogPost } from '../../models/blog-post.model';
 import { ActivatedRoute } from '@angular/router';
+//import { Button } from '../../components/button/button.component'
 
 @Component({
   selector: 'app-blog-page',
@@ -13,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogPageComponent implements OnInit {
 
   urlHandle!: string;
+  backUrl: string = "/";
 
   constructor(private route: ActivatedRoute) {}
 

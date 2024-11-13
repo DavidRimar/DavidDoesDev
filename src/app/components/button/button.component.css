@@ -1,0 +1,24 @@
+.ddd-button {
+  margin-left: 0 15px;         /* Add horizontal margins for padding */
+  cursor: pointer;            /* Pointer cursor on hover */
+  display: inline-block;      /* Inline-block for proper padding */
+  border: none;               /* No border */
+  background: none;           /* No background */
+  outline: none;              /* No outline */
+}
+
+
+.ddd-button::after {
+  content: '';                /* Empty content for the pseudo-element */
+  position: absolute;         /* Position it absolutely */
+  left: 0;                    /* Start at the left */
+  bottom: 0;                  /* Position it at the bottom of the button */
+  width: 0%;                  /* Start with no width (hidden) */
+  height: 2px;                /* Set the thickness of the underline */
+  background-color: purple;   /* Purple color for the underline */
+  transition: width 0.3s ease; /* Animate the width over 0.3s */
+}
+
+.ddd-button:hover::after {
+  width: 100%;                /* Expand underline to full width on hover */
+}
