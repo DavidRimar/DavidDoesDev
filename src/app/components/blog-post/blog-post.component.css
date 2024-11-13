@@ -18,15 +18,24 @@
 /* Medium screens */
 @media (max-width: 800px) {
   #blog-post-container p, #blog-content-block p {
-    width: 600px;         /* Set width for medium screens */
+    width: 500px;         /* Set width for medium screens */
+    margin: 0 auto;
+  }
+
+  h3 {
+    margin: 10px 75px;
   }
 }
 
 /* Mobile screens */
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   #blog-post-container p, #blog-content-block p {
-    width: 400px;         /* Set width for mobile screens */
+    width: 350px;         /* Set width for mobile screens */
     margin: 0 auto;      /* Center the paragraph */
+  }
+
+  h3 {
+    margin: 10px 150px;
   }
 }
 
@@ -35,6 +44,10 @@
   #blog-post-container p, #blog-content-block p {
     width: 250px;         /* Set width for mobile screens */
     margin: 0 auto;      /* Center the paragraph */
+  }
+
+  h3 {
+    margin: 10px 200px;
   }
 }
 
@@ -54,7 +67,7 @@ h3, h4 {
 
 p {
   text-align: justify;
-  margin: 0.4em 0 !important; /* Adds a 1em margin above and below the <p> element */
+  margin: 0.4em 0; /* Adds a 1em margin above and below the <p> element */
 }
 
 code {
