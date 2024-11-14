@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
             id: item.sys.id,
             title: item.fields.title || 'No title',
             summary: item.fields.summary || 'No summary',
-            featuredImage: item.fields.featuredImage?.fields?.file?.url || 'No image', // Handle missing featuredImage
-            author: item.fields.author || 'Unknown author', // Handle missing author
+            featuredImage: `${item.fields.featuredImage?.fields?.file?.url}?w=340&q=100&fm=webp` || 'No image',
+            author: item.fields.author || 'Unknown author',
             dateUpdated: this.formatDate(item.fields.dateUpdated),
             category: item.fields.category,
             urlHandle: item.fields.urlHandle
