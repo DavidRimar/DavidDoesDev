@@ -9,6 +9,7 @@
   bottom: 0;              /* Aligns to the bottom of the viewport */
   width: 100%;            /* Makes the footer span the full width */
   z-index: 1000;         /* Ensures the footer is above other content */
+  min-height: 13vh;
 }
 
 .footer-content {
