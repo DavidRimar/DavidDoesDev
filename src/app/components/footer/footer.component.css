@@ -1,40 +1,43 @@
-/* Styles for the footer */
 .footer {
-  background-color:#0b3c5d; /* Background color */
-  color: white;           /* Text color */
-  text-align: center;     /* Center-aligns text */
-  padding: 10px 0;       /* Padding for top and bottom */
-  position: fixed;        /* Fixes the footer to the bottom of the viewport */
-  left: 0;                /* Aligns to the left of the viewport */
-  bottom: 0;              /* Aligns to the bottom of the viewport */
-  width: 100%;            /* Makes the footer span the full width */
-  z-index: 1000;         /* Ensures the footer is above other content */
+  background-color: #0b3c5d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
   min-height: 13vh;
 }
 
 .footer-content {
-  max-width: 1200px;     /* Optional: limits the width of the content */
-  margin: 0 auto;        /* Centers the content */
-  color: white;           /* Text color */
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 13vh; /* ensures footer-content matches footer height */
 }
 
 .footer-content p {
-  color: white;           /* Text color */
+  color: white;
   padding-top: 4px;
   margin-bottom: 0 !important;
-  justify-content: center !important;
   text-align: center;
   font-size: small;
+  line-height: 1.2; /* stable line-height */
 }
 
 .footer nav ul {
-  list-style: none;      /* Removes default list styling */
-  padding: 0;           /* Removes default padding */
-  margin: 0;            /* Removes default margin */
-  display: flex;        /* Use flexbox to align items horizontally */
-  justify-content: center; /* Centers the list items */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .footer nav ul li {
-  margin: 0 15px;       /* Adds spacing between list items */
+  margin: 0 15px;
 }
