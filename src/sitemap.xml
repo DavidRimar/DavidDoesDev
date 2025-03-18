@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://daviddoesdev.com/</loc>
+    <lastmod>2025-03-18</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://daviddoesdev.com/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://daviddoesdev.com/how-to-whitelist-ip-address-on-Azure-sql-server</loc>
+    <lastmod>2025-01-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+    <url>
+    <loc>https://daviddoesdev.com/how-to-deploy-an-azure-sql-database-with-an-arm-template</loc>
+    <lastmod>2024-10-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+    <url>
+    <loc>https://daviddoesdev.com/composite-indexes-in-sql%E2%80%93football-query-example</loc>
+    <lastmod>2025-03-16</lastmod>
+    <priority>0.9</priority>
+  </url>
+</urlset>
