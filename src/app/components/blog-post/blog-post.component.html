@@ -1,18 +1,13 @@
 <div class="container" *ngIf="blogPost$ | async as blog">
-
-  <!-- Display the title of the blog post -->
   <h2 id="blog-post-container">{{ blog.title }}</h2>
 
-  <!-- Display the content of the blog post -->
-   <div class="row">
+  <div class="row">
     <div id="blog-content-block" class="col" *ngIf="blogPostContent$ | async as blogContent">
-      <div [innerHTML]="blogContent.content"></div>
+      <div [innerHTML]="blogContent"></div>
     </div>
-   </div>
-
+  </div>
 </div>
 
-<!-- Placeholder content for loading state (optional) -->
 <div *ngIf="!(blogPost$ | async)">
   <p>Loading...</p>
 </div>

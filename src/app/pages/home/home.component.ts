@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.blogPosts$ = this.contentfulService.getByCategory('SQL').pipe(
+    this.blogPosts$ = this.contentfulService.getByCategory('C#').pipe(
       map((entries: any) => {
 
         if (entries) {
