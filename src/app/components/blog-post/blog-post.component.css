@@ -71,19 +71,10 @@ p {
 }
 
 code {
-  display: block;                      /* Make <code> a block-level element */
-  background-color: #1e1e1e;          /* Dark background, similar to VS Code */
-  color: #f8903b;                      /* Light gray text color */
-  padding: 8px;                        /* Padding for better readability */
-  border-radius: 4px;                  /* Rounded corners */
-  font-family: 'Courier New', Courier, monospace; /* Monospaced font */
-  margin-top: 8px;                     /* Space above the <code> element */
-  margin-bottom: 8px;                  /* Space below the <code> element */
-  overflow-x: auto;                    /* Enable horizontal scrolling for long lines */
-  white-space: pre;                    /* Preserve whitespace for formatting */
+  display: block !important;
+  white-space: pre !important;
 }
 
-/* Optional: Style for inline <code> elements */
 code.inline {
   display: inline;                     /* Keep inline for inline code */
   background-color: #2a2a2a;          /* Slightly lighter background for inline */
