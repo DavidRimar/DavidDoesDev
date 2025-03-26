@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulServiceService } from '../../services/contentful-service.service';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ContentfulServiceService } from '../../services/contentful-service.service';
 import { BlogCard } from '../../models/blog-card.model';
 
 @Component({
@@ -9,7 +9,6 @@ import { BlogCard } from '../../models/blog-card.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-
 export class HomeComponent implements OnInit {
 
   blogPosts$: Observable<BlogCard[]> | undefined;
@@ -18,28 +17,34 @@ export class HomeComponent implements OnInit {
   constructor(private contentfulService: ContentfulServiceService) {}
 
   ngOnInit(): void {
+    this.blogPosts$ = forkJoin({
+      sql: this.contentfulService.getByCategory('SQL'),
+      csharp: this.contentfulService.getByCategory('C#')
+    }).pipe(
+      map(result => {
 
-    this.blogPosts$ = this.contentfulService.getByCategory('SQL').pipe(
-      map((entries: any) => {
+        const sqlEntries = result.sql as any[];
+        const csharpEntries = result.csharp as any[];
 
-        if (entries) {
+        const combinedEntries = [...sqlEntries, ...csharpEntries];
 
-          console.log('entries', entries);
+        combinedEntries.sort((a, b) => {
+          return new Date(b.fields.dateUpdated).getTime() - new Date(a.fields.dateUpdated).getTime();
+        });
 
-          return entries.map((item: any) => ({
-            id: item.sys.id,
-            title: item.fields.title || 'No title',
-            summary: item.fields.summary || 'No summary',
-            featuredImage: `${item.fields.featuredImage?.fields?.file?.url}?w=340&q=100&fm=webp` || 'No image',
-            author: item.fields.author || 'Unknown author',
-            dateUpdated: this.formatDate(item.fields.dateUpdated),
-            category: item.fields.category,
-            urlHandle: item.fields.urlHandle
-          }) as BlogCard);
-
-        } else {
-          throw new Error('Unexpected data structure');
-        }
+        // Map each entry to a BlogCard.
+        return combinedEntries.map((item: any) => ({
+          id: item.sys.id,
+          title: item.fields.title || 'No title',
+          summary: item.fields.summary || 'No summary',
+          featuredImage: item.fields.featuredImage
+            ? `${item.fields.featuredImage.fields.file.url}?w=340&q=100&fm=webp`
+            : 'No image',
+          author: item.fields.author || 'Unknown author',
+          dateUpdated: this.formatDate(item.fields.dateUpdated),
+          category: item.fields.category,
+          urlHandle: item.fields.urlHandle
+        }) as BlogCard);
       })
     );
 
