@@ -1,5 +1,4 @@
 <div class="container" *ngIf="blogPost$ | async as blog">
-  <h2 id="blog-post-container">{{ blog.title }}</h2>
   <div class="row">
     <div id="blog-content-block" class="col" *ngIf="blogPostContent$ | async as blogContent">
       <div [innerHTML]="blogContent"></div>

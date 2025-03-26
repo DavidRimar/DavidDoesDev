@@ -1,73 +1,44 @@
-#blog-post-container, #blog-content-block {
-  display: flex;           /* Use flexbox to center the content */
-  justify-content: center; /* Center the content horizontally */
+#blog-content-block {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 #blog-content-block {
   padding-bottom: 190px;
 }
 
-#blog-post-container p, #blog-content-block p {
-  width: 800px;           /* Default width for larger screens */
-  max-width: 100%;        /* Ensure it does not exceed the container's width */
-  margin: 15px 15px;         /* Add horizontal margins for padding */
-  padding: 0 15px;        /* Padding to ensure text doesn't touch the edges */
-  box-sizing: border-box;  /* Include padding in the element's total width */
-}
-
-/* Medium screens */
-@media (max-width: 800px) {
-  #blog-post-container p, #blog-content-block p {
-    width: 500px;         /* Set width for medium screens */
-    margin: 15px auto;
-  }
-
-  h3 {
-    margin: 10px 75px;
-  }
-}
-
-/* Mobile screens */
-@media (max-width: 500px) {
-  #blog-post-container p, #blog-content-block p {
-    width: 350px;         /* Set width for mobile screens */
-    margin: 10px auto;      /* Center the paragraph */
-  }
-
-  h3 {
-    margin: 10px 150px;
-  }
-}
-
-/* Mobile screens */
-@media (max-width: 350px) {
-  #blog-post-container p, #blog-content-block p {
-    width: 250px;         /* Set width for mobile screens */
-    margin: 9px auto;      /* Center the paragraph */
-  }
-
-  h3 {
-    margin: 10px 200px;
-  }
+h1 {
+  text-align: center;
+  margin: 25px 0;
 }
 
 h2 {
-  margin-top: 25px;
-  margin-bottom: 15px;
-  text-align: center;
-  padding: 0 10px;
+  text-align: left;
+  margin: 25px 0 15px;
+  padding: 0;
 }
 
-h3, h4 {
-  display: block;
-  margin-top: 25px;
-  font-size: larger;
-  padding: 0 15px;
+h3,
+h4 {
+  text-align: left;
+  margin: 25px 0;
+  padding: 0;
 }
 
 p {
   text-align: justify;
-  margin: 0.4em 0; /* Adds a 1em margin above and below the <p> element */
+  margin: 15px 0;
+}
+
+ul {
+  margin: 15px 10px;
+  padding: 0 15px;
+}
+
+ul p {
+  margin: 3px 0;
 }
 
 code {
@@ -76,12 +47,13 @@ code {
 }
 
 code.inline {
-  display: inline;                     /* Keep inline for inline code */
-  background-color: #2a2a2a;          /* Slightly lighter background for inline */
-  padding: 2px 4px;                   /* Smaller padding for inline code */
-  border-radius: 3px;                 /* Rounded corners for inline */
+  display: inline;
+  background-color: #2a2a2a;
+  padding: 2px 4px;
+  border-radius: 3px;
 }
 
+/* Image container remains centered */
 .image-container {
   display: flex;
   justify-content: center;
@@ -94,6 +66,26 @@ code.inline {
   height: auto;
 }
 
-ul {
-  padding: 0 5.25rem;
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  #blog-content-block {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  #blog-content-block {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 350px) {
+  #blog-content-block {
+    max-width: 250px;
+  }
+}
+
+/* Override PrismJS inline code padding */
+:not(pre) > code[class*="language-"] {
+  padding: 0.3em !important;
 }
