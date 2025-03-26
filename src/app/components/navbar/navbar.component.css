@@ -5,6 +5,7 @@
 .custom-navbar {
   border-bottom: solid;
   border-color: #0b3c5d;
+  background-color: rgb(255, 251, 214) !important;
 }
 
 .nav-link:hover {
