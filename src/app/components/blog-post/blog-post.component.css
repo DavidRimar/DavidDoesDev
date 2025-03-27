@@ -44,6 +44,8 @@ ul p {
 code {
   display: block !important;
   white-space: pre !important;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 code.inline {
